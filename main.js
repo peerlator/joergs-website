@@ -70,6 +70,8 @@ function more_tweets() {
 
 // Medium
 
+medium_html = "<div class='carousel-item'><a style='color: inherit;' href='[POST_URL]'><div class='medium-wrapper'><img src='[IMG_URL]' style='width: 100%'><div class='medium-trapezoid'></div><h1>[TITLE]</h1></div></a></div>"
+
 function get_img_url(text) {
     var pattern = /\b(https?:\/\/\S+(?:png|jpe?g|gif)\S*)\b/;
     return String(text).match(pattern)[0]
@@ -88,7 +90,8 @@ Http.onreadystatechange = (e) => {
             if (posts[i].getElementsByTagName("category").length > 0) {
                 console.log(posts[i])
                 console.log(get_img_url(posts[i].getElementsByTagName("content:encoded")[0].firstChild.nodeValue))
-                document.getElementById("medium-posts").innerHTML += "<div class='carousel-item'" + get_img_url(posts[i].getElementsByTagName("content:encoded")[0].firstChild.nodeValue) + "><h1>" + posts[i].getElementsByTagName("title")[0].firstChild.nodeValue + "</h1></div>"
+                // document.getElementById("medium-posts").innerHTML += "<div class='carousel-item medium-wrapper'" + get_img_url(posts[i].getElementsByTagName("content:encoded")[0].firstChild.nodeValue) + "><h1>" + posts[i].getElementsByTagName("title")[0].firstChild.nodeValue + "</h1></div>"
+                document.getElementById("medium-posts").innerHTML += medium_html.replace("[POST_URL]", posts[i].getElementsByTagName("link")[0].firstChild.nodeValue).replace("[TITLE]", posts[i].getElementsByTagName("title")[0].firstChild.nodeValue).replace("[IMG_URL]",get_img_url(posts[i].getElementsByTagName("content:encoded")[0].firstChild.nodeValue))
             }
         }
     }
