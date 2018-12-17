@@ -99,20 +99,6 @@
     left: 0px;
 }
 
-@media only screen and (max-width: 600px) {
-    .medium-trapezoid {
-        border-bottom: 0px solid transparent;
-        border-left: 0px solid transparent;
-        border-right: 0px solid transparent;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        background: #FD543380;
-    }
-}
-
 .medium-wrapper>h1 {
     width: 50%;
     position: absolute;
