@@ -21,11 +21,17 @@
         cb.setToken("935152166205091841-lP02FGv2lXFyknuUlISRZqfL3gdXwkK",
             "xCn4DErcpZ6hpr6QdCaRankA9pUU0DDihVfbiRsuITClU");
     </script>
-    <script src="main.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="alternate" href="https://medium.com/feed/@joerg" type="application/rss+xml" title="RSS">
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, {});
+        });
+    </script>
 
 </head>
 <header>
@@ -55,7 +61,32 @@
 </header>
 
 <body>
+    <div id="medium-posts" class="carousel carousel-slider"></div>
+
     <div id="social-media"></div>
+    <div class="more-social-media">
+        <button class="btn-floating btn-large" onclick="more_tweets()">More</button>
+    </div>
 </body>
+
+<footer class="page-footer" style="background: #dddddd">
+    <div class="container dark-grey-text">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5>What is this?</h5>
+                <p>This is my personal website. Here I share what I read, write and like online.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="dark-grey-text">Contact</h5>
+                <ul>
+                    <li>Email: joerg.rheinboldt@gmail.com</li>
+                    <li>Twitter: @joerg</li>
+                    <li>Instagram: @joerg</li>
+                    <li>Facebook: joerg.rheinboldt</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </html>

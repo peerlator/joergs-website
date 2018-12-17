@@ -1,22 +1,8 @@
-/* social-media {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-auto-rows: auto;
-    background: #ebebeb;
-    grid-gap: 1em;
-    padding-left: 3%;
-    padding-right: 3%;
-}
-
-#social-media>div {
-    background: #ffffff;
-    padding: 1em;
-} */
 #social-media {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-auto-rows: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    grid-auto-rows: 20px;
     background-color: #eeee;
     padding: 1em;
 }
@@ -26,13 +12,15 @@
 }
 
 .logo {
-    font-family: 'Great Vibes', cursive;
-    font-size: 130%;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 190%;
     left: 20px;
 }
 
 .profile-pic {
     border: 4px solid #FD5433;
+    width: auto;
+    height: 100%;
 }
 
 .twitter-container {
@@ -62,4 +50,34 @@
 
 .twitter-user-info {
     padding-left: 0.5em;
+}
+
+.more-social-media {
+    background: #eeeeee;
+    width: 100%;
+}
+
+.more-social-media>button {
+    display: block;
+    background-color: #56a7d5;
+    margin-left: auto;
+    margin-right: auto;
+    top: -1em;
+}
+
+.more-social-media>button:focus {
+    background-color: #56A7D5;
+}
+
+.more-social-media>button:hover {
+    background-color: #4899C7;
+}
+
+.dark-grey-text {
+    color: #0f0f0f;
+}
+
+.carousel-slider {
+    height: 400px !important;
+    background: #FD5433;
 }
