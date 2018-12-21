@@ -69,7 +69,7 @@ function more_tweets() {
 
 // Medium
 
-medium_html = "<div class='carousel-item'><a style='color: inherit;' href='[POST_URL]'><div class='medium-wrapper'><img src='[IMG_URL]' style='object-fit: cover;min-width: 100%;'><div class='medium-content'><div class='medium-triangle'></div><div class='info'><h1>[TITLE]</h1><div>[DATE]</div></div></div></a></div>"
+medium_html = "<div class='carousel-item'><a style='color: inherit;' href='[POST_URL]'><div class='medium-wrapper' style='overflow: hidden; background-size: cover;background-position: center;background-image: url([IMG_URL]);'><div class='medium-content'><div class='medium-triangle'></div><div class='info'><h1>[TITLE]</h1><div>[DATE]</div></div></div></a></div>"
 
 function get_img_url(text) {
     var pattern = /\b(https?:\/\/\S+(?:png|jpe?g|gif)\S*)\b/;
