@@ -1,11 +1,11 @@
 # TODOS
-- [] Add Instagram (After Birthday)
+- [ ] Add Instagram (After Birthday)
 - [x] new navbar and new design
 - [x] Medium Date
-- [] Better OAuth
-- [] Add Ability to do posts (Maybe, ask after birthday)
+- [ ] Better OAuth
+- [ ] Add Ability to do posts (Maybe, ask after birthday)
 - [x] Fix Medium background image and css auto height.
     - [x] auto-height
     - [x] image
     - [x] responsiveness
-- [] check if url not avail in current website, if it is avail in old website. When yes, redirect
+- [ ] check if url not avail in current website, if it is avail in old website. When yes, redirect
