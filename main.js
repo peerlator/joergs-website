@@ -15,10 +15,9 @@ function resizeAllGridItems() {
         resizeGridItem(allItems[x]);
     }
 }
-window.addEventListener("load", resizeAllGridItems);
-window.addEventListener("resize", resizeAllGridItems);
 
-var twitter_template = '<div class="item twitter-container z-depth-3"><a href="https://twitter.com/joerg/status/[TWEET_ID]" style="color: inherit;"><div class="content"><div class="twitter-info"><img width="48" height="48" src="[PROFILE_IMG_URL]" class="responsive-image circle profile-pic"></img><div class="twitter-user-info"><b>[USER_NAME]</b> &nbsp @joerg <br>[DATE]</div></div><div class="twitter-text">[TWEET_TEXT]</div></div></a></div>'
+
+var twitter_template = '<div class="item twitter-container z-depth-3"><a href="https://twitter.com/joerg/status/[TWEET_ID]" style="color: inherit;"><div class="content"><div class="twitter-info"><img width="48" height="48" src="[PROFILE_IMG_URL]" class="responsive-image circle profile-pic"></img><div class="twitter-user-info"><b>[USER_NAME]</b> @joerg <br>[DATE]</div></div><div class="twitter-text">[TWEET_TEXT]</div></div></a></div>'
 
 function check_display(tweet) {
     if (tweet["in_reply_to_screen_name"] != null) {
@@ -70,7 +69,7 @@ function more_tweets() {
 
 // Medium
 
-medium_html = "<div class='carousel-item'><a style='color: inherit;' href='[POST_URL]'><div class='medium-wrapper'><img src='[IMG_URL]' style='object-fit: cover;min-width: 100%;'><div class='medium-trapezoid'></div><h1>[TITLE]</h1></div></a></div>"
+medium_html = "<div class='carousel-item'><a style='color: inherit;' href='[POST_URL]'><div class='medium-wrapper' style='overflow: hidden; background-size: cover;background-position: center;background-image: url([IMG_URL]);'><div class='medium-content'><div class='medium-triangle'></div><div class='info'><h1>[TITLE]</h1><div>[DATE]</div></div></div></a></div>"
 
 function get_img_url(text) {
     var pattern = /\b(https?:\/\/\S+(?:png|jpe?g|gif)\S*)\b/;
@@ -84,14 +83,10 @@ Http.send();
 Http.onreadystatechange = (e) => {
     medium_feed = Http.responseXML
     if (medium_feed != null) {
-        console.log(medium_feed)
         posts = medium_feed.getElementsByTagName("item")
         for (i = 0; i < posts.length; i++) {
             if (posts[i].getElementsByTagName("category").length > 0) {
-                console.log(posts[i])
-                console.log(get_img_url(posts[i].getElementsByTagName("content:encoded")[0].firstChild.nodeValue))
-                // document.getElementById("medium-posts").innerHTML += "<div class='carousel-item medium-wrapper'" + get_img_url(posts[i].getElementsByTagName("content:encoded")[0].firstChild.nodeValue) + "><h1>" + posts[i].getElementsByTagName("title")[0].firstChild.nodeValue + "</h1></div>"
-                document.getElementById("medium-posts").innerHTML += medium_html.replace("[POST_URL]", posts[i].getElementsByTagName("link")[0].firstChild.nodeValue).replace("[TITLE]", posts[i].getElementsByTagName("title")[0].firstChild.nodeValue).replace("[IMG_URL]",get_img_url(posts[i].getElementsByTagName("content:encoded")[0].firstChild.nodeValue))
+                document.getElementById("medium-posts").innerHTML += medium_html.replace("[POST_URL]", posts[i].getElementsByTagName("link")[0].firstChild.nodeValue).replace("[TITLE]", posts[i].getElementsByTagName("title")[0].firstChild.nodeValue).replace("[IMG_URL]", get_img_url(posts[i].getElementsByTagName("content:encoded")[0].firstChild.nodeValue)).replace("[DATE]", posts[i].getElementsByTagName("pubDate")[0].firstChild.nodeValue)
             }
         }
     }
@@ -100,3 +95,30 @@ Http.onreadystatechange = (e) => {
         fullWidth: true
     });
 }
+
+function resize_triangle() {
+    info_elems = document.getElementsByClassName("info")
+    triangle_elems = document.getElementsByClassName("medium-triangle")
+    for (i=0; i<triangle_elems.length; i++) {
+
+        triangle_elems[i].style["height"] = String(info_elems[i].clientHeight) + "px"
+    }
+}
+
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+
+function resize() {
+    resizeAllGridItems()
+    resize_triangle()
+}
+
+window.addEventListener("load", resize);
+window.addEventListener("resize", resize);
