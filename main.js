@@ -69,7 +69,7 @@ function more_tweets() {
 
 // Medium
 
-medium_html = "<div class='carousel-item'><a style='color: inherit;' href='[POST_URL]'><div class='medium-wrapper' style='overflow: hidden; background-size: cover;background-position: center;background-image: url([IMG_URL]);'><div class='medium-content'><div class='medium-triangle'></div><div class='info'><h1>[TITLE]</h1><div>[DATE]</div></div></div></a></div>"
+medium_html = "<div class='carousel-item'><a style='color: inherit;' href='[POST_URL]'><div class='medium-wrapper' style='overflow: hidden; background-size: cover;background-position: center;background-image: url([IMG_URL]);'><div class='medium-content'><div class='medium-triangle'></div><div class='info'><div><h1>[TITLE]</h1><div>[DATE]</div></div></div></div></a></div>"
 
 function get_img_url(text) {
     var pattern = /\b(https?:\/\/\S+(?:png|jpe?g|gif)\S*)\b/;
@@ -97,11 +97,20 @@ Http.onreadystatechange = (e) => {
 }
 
 function resize_triangle() {
-    info_elems = document.getElementsByClassName("info")
-    triangle_elems = document.getElementsByClassName("medium-triangle")
-    for (i=0; i<triangle_elems.length; i++) {
+    if (window.innerWidth > 700) {
+        info_elems = document.getElementsByClassName("info")
+        triangle_elems = document.getElementsByClassName("medium-triangle")
+        for (i = 0; i < triangle_elems.length; i++) {
 
-        triangle_elems[i].style["height"] = String(info_elems[i].clientHeight) + "px"
+            triangle_elems[i].style["height"] = String(info_elems[i].clientHeight) + "px"
+        }
+    }
+    else {
+        triangle_elems = document.getElementsByClassName("medium-triangle")
+        for (i = 0; i < triangle_elems.length; i++) {
+
+            triangle_elems[i].style["height"] = ""
+        } 
     }
 }
 
