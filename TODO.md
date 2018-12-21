@@ -5,3 +5,6 @@
 - [] Better OAuth
 - [] Add Ability to do posts (Maybe, ask after birthday)
 - [] Fix Medium background image and css auto height.
+    - [x] auto-height
+    - [] image
+    - [] responsiveness
