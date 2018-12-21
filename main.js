@@ -18,7 +18,7 @@ function resizeAllGridItems() {
 window.addEventListener("load", resizeAllGridItems);
 window.addEventListener("resize", resizeAllGridItems);
 
-var twitter_template = '<div class="item twitter-container z-depth-3"><a href="https://twitter.com/joerg/status/[TWEET_ID]" style="color: inherit;"><div class="content"><div class="twitter-info"><img width="48" height="48" src="[PROFILE_IMG_URL]" class="responsive-image circle profile-pic"></img><div class="twitter-user-info"><b>[USER_NAME]</b> &nbsp @joerg <br>[DATE]</div></div><div class="twitter-text">[TWEET_TEXT]</div></div></a></div>'
+var twitter_template = '<div class="item twitter-container z-depth-3"><a href="https://twitter.com/joerg/status/[TWEET_ID]" style="color: inherit;"><div class="content"><div class="twitter-info"><img width="48" height="48" src="[PROFILE_IMG_URL]" class="responsive-image circle profile-pic"></img><div class="twitter-user-info"><b>[USER_NAME]</b> @joerg <br>[DATE]</div></div><div class="twitter-text">[TWEET_TEXT]</div></div></a></div>'
 
 function check_display(tweet) {
     if (tweet["in_reply_to_screen_name"] != null) {
@@ -91,7 +91,7 @@ Http.onreadystatechange = (e) => {
                 console.log(posts[i])
                 console.log(get_img_url(posts[i].getElementsByTagName("content:encoded")[0].firstChild.nodeValue))
                 // document.getElementById("medium-posts").innerHTML += "<div class='carousel-item medium-wrapper'" + get_img_url(posts[i].getElementsByTagName("content:encoded")[0].firstChild.nodeValue) + "><h1>" + posts[i].getElementsByTagName("title")[0].firstChild.nodeValue + "</h1></div>"
-                document.getElementById("medium-posts").innerHTML += medium_html.replace("[POST_URL]", posts[i].getElementsByTagName("link")[0].firstChild.nodeValue).replace("[TITLE]", posts[i].getElementsByTagName("title")[0].firstChild.nodeValue).replace("[IMG_URL]",get_img_url(posts[i].getElementsByTagName("content:encoded")[0].firstChild.nodeValue))
+                document.getElementById("medium-posts").innerHTML += medium_html.replace("[POST_URL]", posts[i].getElementsByTagName("link")[0].firstChild.nodeValue).replace("[TITLE]", posts[i].getElementsByTagName("title")[0].firstChild.nodeValue).replace("[IMG_URL]", get_img_url(posts[i].getElementsByTagName("content:encoded")[0].firstChild.nodeValue))
             }
         }
     }
@@ -99,4 +99,14 @@ Http.onreadystatechange = (e) => {
     var instances = M.Carousel.init(elems, {
         fullWidth: true
     });
+}
+
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
 }
