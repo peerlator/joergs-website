@@ -147,6 +147,7 @@ footer {
     }
     
     .medium-wrapper .info {
+        width: 100%;
         background: transparent;
         height: auto;
     }

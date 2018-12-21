@@ -38,9 +38,9 @@ function urlify(text) {
     // return text.replace(urlRegex, '<a href="$1">$1</a>')
 }
 
-function date_to_text(text) {
+function date_to_text_twitter(text) {
     var list_of_elements = text.split(" ")
-    return list_of_elements[1] + " " + list_of_elements[2] + " " + list_of_elements[5]
+    return list_of_elements[2] + " " + list_of_elements[1] + " " + list_of_elements[5]
 }
 
 function load_twitter(start, end) {
@@ -51,7 +51,7 @@ function load_twitter(start, end) {
         // console.log(reply)
         for (i = start; i < end; i++) {
             if (check_display(reply[i]) == true) {
-                document.getElementById("social-media").innerHTML += twitter_template.replace("[TWEET_ID]", reply[i].id_str).replace("[PROFILE_IMG_URL]", reply[i].user.profile_image_url).replace("[TWEET_TEXT]", urlify(reply[i].text)).replace("[USER_NAME]", reply[i].user.name).replace("[DATE]", date_to_text(reply[i].created_at))
+                document.getElementById("social-media").innerHTML += twitter_template.replace("[TWEET_ID]", reply[i].id_str).replace("[PROFILE_IMG_URL]", reply[i].user.profile_image_url).replace("[TWEET_TEXT]", urlify(reply[i].text)).replace("[USER_NAME]", reply[i].user.name).replace("[DATE]", date_to_text_twitter(reply[i].created_at))
             }
         }
         resizeAllGridItems()
@@ -68,6 +68,11 @@ function more_tweets() {
 }
 
 // Medium
+
+function date_to_text_medium(text) {
+    var list_of_elements = text.split(" ")
+    return list_of_elements[1] + " " + list_of_elements[2] + " " + list_of_elements[3]
+}
 
 medium_html = "<div class='carousel-item'><a style='color: inherit;' href='[POST_URL]'><div class='medium-wrapper' style='overflow: hidden; background-size: cover;background-position: center;background-image: url([IMG_URL]);'><div class='medium-content'><div class='medium-triangle'></div><div class='info'><div><h1>[TITLE]</h1><div>[DATE]</div></div></div></div></a></div>"
 
@@ -86,7 +91,7 @@ Http.onreadystatechange = (e) => {
         posts = medium_feed.getElementsByTagName("item")
         for (i = 0; i < posts.length; i++) {
             if (posts[i].getElementsByTagName("category").length > 0) {
-                document.getElementById("medium-posts").innerHTML += medium_html.replace("[POST_URL]", posts[i].getElementsByTagName("link")[0].firstChild.nodeValue).replace("[TITLE]", posts[i].getElementsByTagName("title")[0].firstChild.nodeValue).replace("[IMG_URL]", get_img_url(posts[i].getElementsByTagName("content:encoded")[0].firstChild.nodeValue)).replace("[DATE]", posts[i].getElementsByTagName("pubDate")[0].firstChild.nodeValue)
+                document.getElementById("medium-posts").innerHTML += medium_html.replace("[POST_URL]", posts[i].getElementsByTagName("link")[0].firstChild.nodeValue).replace("[TITLE]", posts[i].getElementsByTagName("title")[0].firstChild.nodeValue).replace("[IMG_URL]", get_img_url(posts[i].getElementsByTagName("content:encoded")[0].firstChild.nodeValue)).replace("[DATE]", date_to_text_medium(posts[i].getElementsByTagName("pubDate")[0].firstChild.nodeValue))
             }
         }
     }
