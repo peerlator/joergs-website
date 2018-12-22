@@ -13,14 +13,6 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <script type="text/javascript" src="codebird.js"></script>
-
-    <script type="text/javascript">
-        var cb = new Codebird;
-        cb.setConsumerKey("t05JCfJUY39jzfZ4yC7M434AJ", "nt1IBVVsH0arO1byvMv5qDqGMu3EitwuCxW0hYfrhlEeFQfSkF");
-        cb.setToken("935152166205091841-lP02FGv2lXFyknuUlISRZqfL3gdXwkK",
-            "xCn4DErcpZ6hpr6QdCaRankA9pUU0DDihVfbiRsuITClU");
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="main.js"></script>
     <script>
@@ -38,31 +30,6 @@
 
 
 </head>
-<header>
-    <!--<nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo logo">Joerg</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="https://twitter.com/joerg">Twitter</a></li>
-                <li><a href="http://www.instagram.com/joerg">Instagram</a></li>
-                <li><a href="http://www.facebook.com/joerg.rheinboldt">Facebook</a></li>
-                <li><a href="https://de.linkedin.com/in/rheinboldt/de">LinkedIn</a></li>
-                <li><a href="https://medium.com/@joerg">Medium</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="https://twitter.com/joerg">Twitter</a></li>
-        <li><a href="http://www.instagram.com/joerg">Instagram</a></li>
-        <li><a href="http://www.facebook.com/joerg.rheinboldt">Facebook</a></li>
-        <li><a href="https://de.linkedin.com/in/rheinboldt/de">LinkedIn</a></li>
-        <li><a href="https://medium.com/@joerg">Medium</a></li>
-    </ul>
--->
-
-</header>
 
 <body>
 
@@ -87,7 +54,7 @@
 
     <div id="social-media"></div>
     <div class="more-social-media">
-        <button class="waves-effect waves-light btn-large" onclick="more_tweets()">Load More</button>
+        <button class="waves-effect waves-light btn-large" onclick="more_tweets()" id="LoadMoreBtn">Load More</button>
     </div>
 </body>
 

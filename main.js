@@ -16,13 +16,10 @@ function resizeAllGridItems() {
     }
 }
 
-
 var twitter_template = '<div class="item twitter-container z-depth-3"><a href="https://twitter.com/joerg/status/[TWEET_ID]" style="color: inherit;"><div class="content"><div class="twitter-info"><img width="48" height="48" src="[PROFILE_IMG_URL]" class="responsive-image circle profile-pic"></img><div class="twitter-user-info"><b>[USER_NAME]</b> @joerg <br>[DATE]</div></div><div class="twitter-text">[TWEET_TEXT]</div></div></a></div>'
 
+
 function check_display(tweet) {
-    if (tweet["in_reply_to_screen_name"] != null) {
-        return false
-    }
     if (tweet.text.startsWith("RT")) {
         return false
     }
@@ -44,19 +41,21 @@ function date_to_text_twitter(text) {
 }
 
 function load_twitter(start, end) {
-    cb.__call("statuses/userTimeline", {
-        "user_id": "5305502",
-        "count": String(end)
-    }, function (reply, rate, err) {
+    const TwitterHTTP = new XMLHttpRequest();
+    const twitter_url = 'https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=5305502&count='+String(end)+'screen_name=twitterapi';
+    TwitterHTTP.open("GET", twitter_url);
+    TwitterHTTP.setRequestHeader("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAAI5n9AAAAAAAxpERlwfdm3drgTOHgIPpMZycxao%3Dkgi24BaAjVyD9eFw0qXcBYNlcgHRWQl3KWbNtXlSR9qd4JQuv3")
+    TwitterHTTP.send();
+    TwitterHTTP.onreadystatechange = (e) => {
+        tweets = JSON.parse(TwitterHTTP.response)
         for (i = start; i < end; i++) {
-            if (check_display(reply[i]) == true) {
-                document.getElementById("social-media").innerHTML += twitter_template.replace("[TWEET_ID]", reply[i].id_str).replace("[PROFILE_IMG_URL]", reply[i].user.profile_image_url).replace("[TWEET_TEXT]", urlify(reply[i].text)).replace("[USER_NAME]", reply[i].user.name).replace("[DATE]", date_to_text_twitter(reply[i].created_at))
+            if (check_display(tweets[i]) == true) {
+                document.getElementById("social-media").innerHTML += twitter_template.replace("[TWEET_ID]", tweets[i].id_str).replace("[PROFILE_IMG_URL]", tweets[i].user.profile_image_url).replace("[TWEET_TEXT]", urlify(tweets[i].text)).replace("[USER_NAME]", tweets[i].user.name).replace("[DATE]", date_to_text_twitter(tweets[i].created_at))
             }
         }
         resizeAllGridItems()
-    });
+    }
 }
-
 load_twitter(0, 30)
 
 var n_tweets = 30;
@@ -64,6 +63,10 @@ var n_tweets = 30;
 function more_tweets() {
     n_tweets += 20;
     load_twitter(n_tweets - 20, n_tweets)
+    if (n_tweets > 100) {
+        console.log(n_tweets)
+        document.getElementById("LoadMoreBtn").style = "display: none;"
+    }
 }
 
 // Medium
@@ -80,12 +83,12 @@ function get_img_url(text) {
     return String(text).match(pattern)[0]
 }
 
-const Http = new XMLHttpRequest();
-const url = 'https://cors-anywhere.herokuapp.com/https://medium.com/feed/@joerg';
-Http.open("GET", url);
-Http.send();
-Http.onreadystatechange = (e) => {
-    medium_feed = Http.responseXML
+const MediumHTTP = new XMLHttpRequest();
+const medium_url = 'https://cors-anywhere.herokuapp.com/https://medium.com/feed/@joerg';
+MediumHTTP.open("GET", medium_url);
+MediumHTTP.send();
+MediumHTTP.onreadystatechange = (e) => {
+    medium_feed = MediumHTTP.responseXML
     if (medium_feed != null) {
         posts = medium_feed.getElementsByTagName("item")
         for (i = 0; i < posts.length; i++) {
@@ -108,13 +111,12 @@ function resize_triangle() {
 
             triangle_elems[i].style["height"] = String(info_elems[i].clientHeight) + "px"
         }
-    }
-    else {
+    } else {
         triangle_elems = document.getElementsByClassName("medium-triangle")
         for (i = 0; i < triangle_elems.length; i++) {
 
             triangle_elems[i].style["height"] = ""
-        } 
+        }
     }
 }
 
