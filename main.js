@@ -1,4 +1,4 @@
-// alert("Happy Birthday")
+alert("Happy Birthday")
 
 function resizeGridItem(item) {
     grid = document.getElementById("social-media");
