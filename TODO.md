@@ -8,4 +8,3 @@
     - [x] auto-height
     - [x] image
     - [x] responsiveness
-- [ ] check if url not avail in current website, if it is avail in old website. When yes, redirect

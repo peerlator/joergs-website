@@ -48,7 +48,6 @@ function load_twitter(start, end) {
         "user_id": "5305502",
         "count": String(end)
     }, function (reply, rate, err) {
-        // console.log(reply)
         for (i = start; i < end; i++) {
             if (check_display(reply[i]) == true) {
                 document.getElementById("social-media").innerHTML += twitter_template.replace("[TWEET_ID]", reply[i].id_str).replace("[PROFILE_IMG_URL]", reply[i].user.profile_image_url).replace("[TWEET_TEXT]", urlify(reply[i].text)).replace("[USER_NAME]", reply[i].user.name).replace("[DATE]", date_to_text_twitter(reply[i].created_at))
