@@ -99,6 +99,7 @@ MediumHTTP.onreadystatechange = (e) => {
     var instances = M.Carousel.init(elems, {
         fullWidth: true
     });
+    resize();
 }
 
 function resize_triangle() {
