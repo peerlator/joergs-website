@@ -1,5 +1,3 @@
-alert("Happy Birthday")
-
 function resizeGridItem(item) {
     grid = document.getElementById("social-media");
     rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
