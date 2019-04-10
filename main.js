@@ -17,9 +17,9 @@ const medium_url = 'https://cors-anywhere.herokuapp.com/https://medium.com/feed/
 MediumHTTP.open("GET", medium_url);
 MediumHTTP.send();
 MediumHTTP.onreadystatechange = (e) => {
-    document.getElementById("medium-posts").innerHTML += medium_html.replace("[POST_URL]", "").replace("[TITLE]", "Welcome to my new Website!").replace("[IMG_URL]", "/welcome-to-my-new-webpage.jpeg").replace("[DATE]", "")
     medium_feed = MediumHTTP.responseXML
     if (medium_feed != null) {
+        document.getElementById("medium-posts").innerHTML += medium_html.replace("[POST_URL]", "").replace("[TITLE]", "Welcome to my new Website!").replace("[IMG_URL]", "/welcome-to-my-new-webpage.jpeg").replace("[DATE]", "")
         posts = medium_feed.getElementsByTagName("item")
         for (i = 0; i < posts.length; i++) {
             if (posts[i].getElementsByTagName("category").length > 0) {
