@@ -1,0 +1,65 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/0b04c129/
+#social-media	custom.css	/^#social-media {$/;"	i
+.active	custom.css	/^.active {$/;"	c
+.carousel-slider	custom.css	/^.carousel-slider {$/;"	c
+.content	custom.css	/^.content {$/;"	c
+.dark-grey-text	custom.css	/^.dark-grey-text {$/;"	c
+.logo	custom.css	/^.logo {$/;"	c
+.medium-trapezoid	custom.css	/^.medium-trapezoid {$/;"	c
+.medium-triangle	custom.css	/^    .medium-triangle {$/;"	c
+.medium-triangle	custom.css	/^.medium-triangle {$/;"	c
+.medium-wrapper	custom.css	/^.medium-wrapper {$/;"	c
+.medium-wrapper .info	custom.css	/^    .medium-wrapper .info {$/;"	c
+.medium-wrapper .info	custom.css	/^.medium-wrapper .info {$/;"	c
+.more-social-media	custom.css	/^.more-social-media {$/;"	c
+.more-social-media>button	custom.css	/^.more-social-media>button {$/;"	c
+.more-social-media>button:focus	custom.css	/^.more-social-media>button:focus {$/;"	c
+.more-social-media>button:hover	custom.css	/^.more-social-media>button:hover {$/;"	c
+.nav-wrapper	custom.css	/^.nav-wrapper {$/;"	c
+.profile-pic	custom.css	/^.profile-pic {$/;"	c
+.topnav	custom.css	/^.topnav {$/;"	c
+.topnav .links .icon	custom.css	/^.topnav .links .icon {$/;"	c
+.topnav .links a	custom.css	/^    .topnav .links a {$/;"	s
+.topnav .links a	custom.css	/^.topnav .links a {$/;"	s
+.topnav .links a.icon	custom.css	/^    .topnav .links a.icon {$/;"	c
+.topnav .links a:hover	custom.css	/^.topnav .links a:hover {$/;"	s
+.topnav .logo	custom.css	/^.topnav .logo {$/;"	c
+.topnav.responsive	custom.css	/^    .topnav.responsive {$/;"	c
+.topnav.responsive .links a	custom.css	/^    .topnav.responsive .links a {$/;"	s
+.topnav.responsive .links a.icon	custom.css	/^    .topnav.responsive .links a.icon {$/;"	c
+.topnav.responsive .logo	custom.css	/^    .topnav.responsive .logo {$/;"	c
+.twitter-container	custom.css	/^.twitter-container {$/;"	c
+.twitter-container>.content	custom.css	/^.twitter-container>.content {$/;"	c
+.twitter-info	custom.css	/^.twitter-info {$/;"	c
+.twitter-text	custom.css	/^.twitter-text {$/;"	c
+.twitter-user-info	custom.css	/^.twitter-user-info {$/;"	c
+AnonymousFunctionb43910f50100	main.js	/^    return text.replace(urlRegex, function (url) {$/;"	f
+Contact	index.html	/^        <h2>Contact<\/h2>$/;"	i
+MediumHTTP	main.js	/^const MediumHTTP = new XMLHttpRequest();$/;"	C
+PAPA's Geschenk	README.md	/^# PAPA's Geschenk$/;"	c
+TODOS	TODO.md	/^# TODOS$/;"	c
+body	custom.css	/^body {$/;"	s
+check_display	main.js	/^function check_display(tweet) {$/;"	f
+date_to_text_medium	main.js	/^function date_to_text_medium(text) {$/;"	f
+date_to_text_twitter	main.js	/^function date_to_text_twitter(text) {$/;"	f
+elems	main.js	/^    var elems = document.querySelectorAll('.carousel');$/;"	v
+footer	custom.css	/^footer {$/;"	s
+get_img_url	main.js	/^function get_img_url(text) {$/;"	f
+header	custom.css	/^header {$/;"	s
+instances	main.js	/^    var instances = M.Carousel.init(elems, {$/;"	v
+load_twitter	main.js	/^function load_twitter(start, end) {$/;"	f
+medium_url	main.js	/^const medium_url = 'https:\/\/cors-anywhere.herokuapp.com\/https:\/\/medium.com\/feed\/@joerg';$/;"	C
+more_tweets	main.js	/^function more_tweets() {$/;"	f
+myFunction	main.js	/^function myFunction() {$/;"	f
+resize	main.js	/^function resize() {$/;"	f
+resizeAllGridItems	main.js	/^function resizeAllGridItems() {$/;"	f
+resizeGridItem	main.js	/^function resizeGridItem(item) {$/;"	f
+resize_triangle	main.js	/^function resize_triangle() {$/;"	f
+twitter_template	main.js	/^var twitter_template = '<div class="item twitter-container z-depth-3"><a href="https:\/\/twitter/;"	v
+urlify	main.js	/^function urlify(text) {$/;"	f
